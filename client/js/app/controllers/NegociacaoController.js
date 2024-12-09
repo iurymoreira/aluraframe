@@ -10,6 +10,9 @@ class NegociacaoController {
         this._negociacoesView = new NegociacoesView($('#negociacoesView'));
         this._negociacoesView.update(this._listaNegociacoes);
 
+        this._hoje = new Date();
+        this._inputData.value = DateHelper.dataParaInput(this._hoje)
+
         this._mensagem = new Mensagem();
         this._mensagemView = new MensagemView($('#mensagemView'));
         this._mensagemView.update(this._mensagem);
@@ -103,12 +106,11 @@ class NegociacaoController {
 
     _limpaFormulario() {
 
-        // this._inputData.value = new Date;
-        this._inputData.value = '2024-12-03';
+        this._inputData.value = DateHelper.dataParaInput(new Date());
         this._inputQuantidade.value = 1;
         this._inputValor.value = 1;
 
-        this._inputValor.focus();
+        this._inputData.focus();
     }
 
     removeRow(index) {

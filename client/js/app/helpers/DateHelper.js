@@ -5,6 +5,13 @@ class DateHelper {
         throw new Error('Esta classe não pode ser instanciada');
     }
 
+    static dataParaInput(data) {
+        const ano = data.getFullYear();
+        const mes = (data.getMonth() + 1).toString().padStart(2, '0');
+        const dia = data.getDate().toString().padStart(2, '0');
+        return `${ano}-${mes}-${dia}`;
+    }
+
     static dataParaTexto(data) {
 
         return `${data.getDate()}/${data.getMonth() + 1}/${data.getFullYear()}`
